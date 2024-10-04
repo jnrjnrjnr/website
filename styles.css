@@ -1,0 +1,184 @@
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #000000;
+    --button-color: #000000;
+    --button-hover-color: #333333;
+    --bg-color-rgb: 240, 240, 240;
+    --text-color-rgb: 0, 0, 0;
+}
+
+body {
+    font-family: 'VCR OSD Mono', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    --bg-color: #000000;
+    --text-color: #cccccc;
+    --button-color: #ffffff;
+    --button-hover-color: #cccccc;
+    --bg-color-rgb: 0, 0, 0;
+    --text-color-rgb: 204, 204, 204;
+}
+
+header, main, footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer {
+    font-size: 0.8em;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Mode toggle button */
+.mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--button-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 2px 5px rgba(0, 0, 0, 0.2),
+        inset 0 1px 3px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.mode-toggle:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.1);
+}
+
+.mode-toggle:active {
+    transform: scale(0.9);
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delay for each section */
+header.fade-in { animation-delay: 0.2s; }
+#about.fade-in { animation-delay: 0.4s; }
+#projects.fade-in { animation-delay: 0.6s; }
+#contact.fade-in { animation-delay: 0.8s; }
+footer.fade-in { animation-delay: 1s; }
+
+/* Add this to your existing styles */
+
+.language-selector {
+    position: fixed;
+    top: 20px;
+    right: 60px; /* Positioned to the left of the mode toggle */
+    z-index: 1000;
+}
+
+.language-selector select {
+    font-family: 'VCR OSD Mono', monospace;
+    background-color: rgba(var(--bg-color-rgb), 0.5);
+    color: var(--text-color);
+    border: 1px solid rgba(var(--text-color-rgb), 0.3);
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 25px;
+}
+
+.language-selector::after {
+    content: '▼';
+    font-size: 0.7em;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-color);
+}
+
+.language-selector select:hover,
+.language-selector select:focus {
+    background-color: rgba(var(--bg-color-rgb), 0.7);
+    border-color: rgba(var(--text-color-rgb), 0.5);
+    outline: none;
+    box-shadow: 0 0 10px rgba(var(--text-color-rgb), 0.2);
+}
+
+/* Add these new CSS variables to the :root and body.dark-mode selectors */
+:root {
+    /* ... (existing variables) ... */
+    --bg-color-rgb: 240, 240, 240;
+    --text-color-rgb: 0, 0, 0;
+}
+
+body.dark-mode {
+    /* ... (existing variables) ... */
+    --bg-color-rgb: 0, 0, 0;
+    --text-color-rgb: 204, 204, 204;
+}

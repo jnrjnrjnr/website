@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josh Netto-Rosen</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/vcr-osd-mono" rel="stylesheet">
+</head>
+<body>
+    <div id="mode-toggle" class="mode-toggle"></div>
+    <div id="language-selector" class="language-selector">
+        <select id="language">
+            <option value="en">ENG</option>
+            <option value="por">POR</option>
+            <option value="spa">SPA</option>
+        </select>
+    </div>
+    <header class="fade-in">
+        <h1>Josh Netto-Rosen</h1>
+        <nav>
+            <ul>
+                <li><a href="#about" data-en="About" data-por="Sobre" data-spa="Acerca de">About</a></li>
+                <li><a href="#projects" data-en="Projects" data-por="Projetos" data-spa="Proyectos">Projects</a></li>
+                <li><a href="#contact" data-en="Contact" data-por="Contato" data-spa="Contacto">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="fade-in">
+            <h2 data-en="About Me" data-por="Sobre Mim" data-spa="Sobre Mí">About Me</h2>
+            <p data-en="Interested in the future of technology and health." data-por="Interessado no futuro da tecnologia e saúde." data-spa="Interesado en el futuro de la tecnología y la salud.">Interested in the future of technology and health.</p> 
+            <p data-en="This website was built with natural language." data-por="Este site foi construído com linguagem natural." data-spa="Este sitio web fue construido con lenguaje natural.">This website was built with natural language.</p>
+        </section>
+
+        <section id="projects" class="fade-in">
+            <h2 data-en="Projects" data-por="Projetos" data-spa="Proyectos">Projects</h2>
+            <ul>
+                <li><a href="https://newborn-activity-tracker-jnrjnr.replit.app" target="_blank" data-en="Baby Activity Tracker" data-por="Rastreador de Atividades do Bebê" data-spa="Rastreador de Actividades del Bebé">Baby Activity Tracker</a></li>
+                <li><a href="http://putontribal.com" target="_blank" data-en="Tribal Playlist" data-por="Lista de Reprodução Tribal" data-spa="Lista de Reproducción Tribal">Tribal Playlist</a></li>
+                <li data-en="Project 3" data-por="Projeto 3" data-spa="Proyecto 3">Project 3</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="fade-in">
+            <h2 data-en="Contact" data-por="Contato" data-spa="Contacto">Contact</h2>
+            <p><a href="mailto:jnettorosen1@gmail.com">Email</a></p>
+            <p><a href="https://www.linkedin.com/in/joshnettorosen/" target="_blank">LinkedIn</a></p>
+            <p><a href="https://x.com/joshnettor" target="_blank">X</a></p>
+        </section>
+    </main>
+
+    <footer class="fade-in">
+        <p data-en="© 2024 Josh Netto-Rosen. All rights reserved." data-por="© 2024 Josh Netto-Rosen. Todos os direitos reservados." data-spa="© 2024 Josh Netto-Rosen. Todos los derechos reservados.">© 2024 Josh Netto-Rosen. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const modeToggle = document.getElementById('mode-toggle');
+        modeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        const languageSelector = document.getElementById('language');
+        languageSelector.addEventListener('change', (event) => {
+            const lang = event.target.value;
+            document.querySelectorAll('[data-en]').forEach((element) => {
+                if (element.tagName === 'A') {
+                    element.innerHTML = element.getAttribute(`data-${lang}`);
+                } else {
+                    element.textContent = element.getAttribute(`data-${lang}`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
