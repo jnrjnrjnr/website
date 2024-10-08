@@ -27,10 +27,12 @@ body.dark-mode {
     --text-color-rgb: 204, 204, 204;
 }
 
-header, main, footer {
+header {
+    position: relative;
+    padding-top: 60px; /* Create space for the buttons */
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 60px 20px 20px; /* Adjust top padding */
 }
 
 nav ul {
@@ -67,6 +69,15 @@ ul {
 
 footer {
     font-size: 0.8em;
+    border: 4px dotted var(--text-color);
+    padding: 10px;
+    margin-top: 20px;
+    max-width: 760px; /* 800px - 20px padding on each side */
+    margin-left: auto;
+    margin-right: auto;
+    /* Add these lines for debugging */
+    background-color: rgba(255, 0, 0, 0.1);
+    min-height: 50px;
 }
 
 a {
@@ -80,7 +91,7 @@ a:hover {
 
 /* Mode toggle button */
 .mode-toggle {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 20px;
     width: 30px;
@@ -128,7 +139,7 @@ footer.fade-in { animation-delay: 1s; }
 /* Add this to your existing styles */
 
 .language-selector {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 60px; /* Positioned to the left of the mode toggle */
     z-index: 1000;
@@ -181,4 +192,41 @@ body.dark-mode {
     /* ... (existing variables) ... */
     --bg-color-rgb: 0, 0, 0;
     --text-color-rgb: 204, 204, 204;
+}
+
+#projects ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.project-item {
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.project-item a {
+    display: inline-block;
+}
+
+.project-description {
+    font-size: 0.5em;
+    color: rgba(var(--text-color-rgb), 0.7);
+    font-style: italic;
+    max-width: 80%;
+    margin: 5px auto 0;
+    display: none;
+}
+
+/* Remove any hover styles for .project-item */
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .project-description {
+        display: none !important;
+    }
 }
