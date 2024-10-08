@@ -39,7 +39,7 @@
             <ul>
                 <li><a href="https://newborn-activity-tracker-jnrjnr.replit.app" target="_blank" data-en="Baby Activity Tracker" data-por="Rastreador de Atividades do Bebê" data-spa="Rastreador de Actividades del Bebé">Baby Activity Tracker</a></li>
                 <li><a href="http://putontribal.com" target="_blank" data-en="Tribal Playlist" data-por="Lista de Reprodução Tribal" data-spa="Lista de Reproducción Tribal">Tribal Playlist</a></li>
-                <li data-en="Project 3" data-por="Projeto 3" data-spa="Proyecto 3">Project 3</li>
+                <li><a href="https://www.autobioai.com" target="_blank" data-en="AutoBioAI" data-por="AutoBioAI" data-spa="AutoBioAI">AutoBioAI</a></li>
             </ul>
         </section>
 
@@ -57,8 +57,22 @@
 
     <script>
         const modeToggle = document.getElementById('mode-toggle');
-        modeToggle.addEventListener('click', () => {
+        
+        // Function to toggle dark mode
+        function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
+        }
+
+        // Add click event listener for desktop
+        modeToggle.addEventListener('click', toggleDarkMode);
+
+        // Add touch event listeners for mobile
+        modeToggle.addEventListener('touchstart', function(e) {
+            e.preventDefault(); // Prevent default touch behavior
+        });
+        modeToggle.addEventListener('touchend', function(e) {
+            e.preventDefault(); // Prevent default touch behavior
+            toggleDarkMode();
         });
 
         const languageSelector = document.getElementById('language');
