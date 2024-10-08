@@ -69,15 +69,11 @@ ul {
 
 footer {
     font-size: 0.8em;
-    border: 4px dotted var(--text-color);
     padding: 10px;
     margin-top: 20px;
     max-width: 760px; /* 800px - 20px padding on each side */
     margin-left: auto;
     margin-right: auto;
-    /* Add these lines for debugging */
-    background-color: rgba(255, 0, 0, 0.1);
-    min-height: 50px;
 }
 
 a {
